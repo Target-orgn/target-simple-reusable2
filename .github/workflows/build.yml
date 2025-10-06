@@ -15,5 +15,5 @@ jobs:
     - uses: actions/checkout@v4.1.0
       with:
         fetch-depth: 20
-        lfs: true
+        # lfs: true
     - run: echo "Running tests..running"

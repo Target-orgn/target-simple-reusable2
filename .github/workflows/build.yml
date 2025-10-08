@@ -1,1 +1,14 @@
-#
+name: gitlab-source-group/build
+on:
+  workflow_call:
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    container:
+      image: alpine:latest
+    timeout-minutes: 60
+    steps:
+    - uses: actions/checkout@v4.1.0
+      with:
+        fetch-depth: 20
+    - run: echo "Running tests..running"

@@ -1,10 +1,10 @@
 name: gitlab-source-group/build
 on:
-  push:
-  workflow_dispatch:
-concurrency:
-  group: "${{ github.ref }}"
-  cancel-in-progress: true
+  workflow_call:
+    inputs:
+      environment:
+        required: true
+        type: string
 jobs:
   test:
     runs-on: ubuntu-latest
@@ -15,5 +15,4 @@ jobs:
     - uses: actions/checkout@v4.1.0
       with:
         fetch-depth: 20
-        lfs: true
     - run: echo "Running tests..running"
